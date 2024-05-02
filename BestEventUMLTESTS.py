@@ -130,3 +130,33 @@ best_event_company.add_venue(venue1)
 
 # Printing the current state of the company's management
 print("Test case 10:", best_event_company)
+# Initializing a few employees from the table
+employees = {
+    47899: Employee("Susan Meyers", 47899, "Sales", "Manager", 37500, 45, "1977-03-22",
+                    "AB1234567", "susan.meyers@example.com", "+971500123456", "123 Palm St, Dubai", "2010-08-15"),
+    81774: Employee("Joy Rogers", 81774, "Sales", "Manager", 24000, 38, "1984-06-17",
+                    "CD8901234", "joy.rogers@example.com", "+971500654321", "456 Cedar St, Abu Dhabi", "2013-04-01"),
+    11234: Employee("Shyam Sundar", 11234, "Sales", "Salesperson", 20000, 28, "1994-11-12",
+                    "EF4567890", "shyam.sundar@example.com", "+971501234567", "789 Maple St, Sharjah", "2016-09-23")
+}
+
+# Test Case 1: Print initial details
+print("Test Case 1: Initial Details")
+print(employees[47899])
+
+# Test Case 2: Update Contact Details for Susan Meyers
+print("\nTest Case 2: Update Contact Details")
+employees[47899].updateContactDetails("susan.new@example.com", "+971500999888", "321 New Palm St, Dubai")
+print(employees[47899])
+
+# Test Case 3: Calculate and display total salary after a hypothetical bonus is added
+print("\nTest Case 3: Calculate Total Salary")
+employees[47899].setMonthlySalary(employees[47899].getMonthlySalary() + 5000)  # adding a bonus of AED 5000
+print(employees[47899])
+
+# Running the tests
+if __name__ == "__main__":
+    print(employees[47899])
+    employees[47899].setEmailAddress("new_email@susanmeyers.com")
+    employees[47899].setPhoneNumber("+971500987654")
+    print(employees[47899])
