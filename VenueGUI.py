@@ -4,6 +4,7 @@ import pickle
 import os
 
 class VenueGUI:
+    """Class for Venue GUI"""
     def __init__(self, root):
         self.root = root
         root.title("Venue Management System")

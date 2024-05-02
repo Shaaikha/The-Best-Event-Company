@@ -148,7 +148,7 @@ class BestEventCompanyGUI:
             'Venues': ['ID', 'Name', 'Address', 'Details']
         }
 
-# Main window
+#Adding the main window
 if __name__ == '__main__':
     root = tk.Tk()
     app = BestEventCompanyGUI(root)

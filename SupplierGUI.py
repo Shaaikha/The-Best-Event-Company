@@ -4,6 +4,7 @@ import pickle
 import os
 
 class SupplierGUI:
+    """Class for Supplier GUI"""
     def __init__(self, root):
         self.root = root
         root.title("Supplier Management System")

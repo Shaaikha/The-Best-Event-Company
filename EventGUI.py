@@ -4,6 +4,7 @@ import pickle
 import os
 
 class EventGUI:
+    """Class for Event GUI"""
     def __init__(self, root):
         self.root = root
         root.title("Event Management System")

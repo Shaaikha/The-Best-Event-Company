@@ -4,6 +4,7 @@ import pickle
 import os
 
 class ClientGUI:
+    """Class for Client GUI"""
     def __init__(self, root):
         self.root = root
         root.title("Client Management System")

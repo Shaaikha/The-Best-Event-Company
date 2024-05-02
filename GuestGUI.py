@@ -4,6 +4,7 @@ import pickle
 import os
 
 class GuestGUI:
+    """Class for Guest GUI"""
     def __init__(self, root):
         self.root = root
         root.title("Guest Management System")
