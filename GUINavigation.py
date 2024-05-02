@@ -1,7 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox, ttk
+from DataPickling import load_data, save_data  # Import the functions
 import pickle
 import os
+
 
 class BestEventCompanyGUI:
     """A GUI class to manage event company operations, using pickle for storing data."""
@@ -12,8 +14,7 @@ class BestEventCompanyGUI:
 
         # Load or initialize data; uses pickle for binary data storage
         self.filename = 'ALLDATA.pkl'
-        self.entities = self.load_data()
-        self.current_entity_type = 'Employees'
+        self.entities = load_data(self.filename)  # Load data using the imported function
 
         # Initialize UI elements: entity forms, tabs, and buttons
         self.entries = {}
