@@ -1,10 +1,12 @@
 class Employee:
     """Class for employees working for Best Events Company"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, fullName="", employeeId="", deptName="", positionTitle="", monthlySalary=0, currentAge=0,
                  birthDate="",
                  passportInfo="", emailAddress="", phoneNumber="", homeAddress="", employmentStartDate=""):
-        # Initialize employee attributes
+        # Initialize employee attributes such as their name, id, departement...
+        # The attributes are private using the prefix of "__"
         self.__fullName = fullName
         self.__employeeId = employeeId
         self.__deptName = deptName
@@ -113,7 +115,7 @@ class Employee:
                 f"Employee ID: {self.__employeeId}\n"
                 f"Department: {self.__deptName}\n"
                 f"Job Title: {self.__positionTitle}\n"
-                f"Monthly Salary: ${self.__monthlySalary}\n"
+                f"Monthly Salary: AED{self.__monthlySalary}\n"
                 f"Age: {self.__currentAge}\n"
                 f"Date of Birth: {self.__birthDate}\n"
                 f"Passport Details: {self.__passportInfo}\n"
@@ -126,6 +128,7 @@ class Employee:
 class SalesManager(Employee):
     """Class for sales manager working for Best Events Company"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, fullName="", employeeId="", deptName="", positionTitle="", monthlySalary=0, currentAge=0,
                  birthDate="",
                  passportInfo="", emailAddress="", phoneNumber="", homeAddress="", employmentStartDate="",
@@ -133,22 +136,23 @@ class SalesManager(Employee):
         super().__init__(fullName, employeeId, deptName, positionTitle, monthlySalary, currentAge, birthDate,
                          passportInfo,
                          emailAddress, phoneNumber, homeAddress, employmentStartDate)
+        # The attributes are private using the prefix of "__"
         self.__salesTarget = salesTarget
         self.__salesAchieved = salesAchieved
         self.__bonus = bonus
         self.__salesRegion = salesRegion
 
     def updateSalesTarget(self, newTarget):
-        # Function to update sales target
+        # This function is used to update sales target, where it handles errors using try and except
         try:
             self.__salesTarget = newTarget
         except Exception as e:
             print(f"Error updating sales target: {e}")
 
     def generateSalesReport(self):
-        # Function to generate sales report
+        # This function is used to generate sales report
         try:
-            # Add logic to generate sales report
+            # Then we create an algorithm in order to generate sales report
             return f"Sales Report - Target: {self.__salesTarget}, Achieved: {self.__salesAchieved}"
         except Exception as e:
             print(f"Error generating sales report: {e}")
@@ -186,7 +190,11 @@ class SalesManager(Employee):
                              f"Sales Region: {self.__salesRegion}")
         return employee_str + "\n" + sales_manager_str
 
+
+# Using enum class to list the options of client status as the client can be active, inactive, or prospective
 from enum import Enum
+
+
 class ClientStatus(Enum):
     """Enum class for client status"""
     ACTIVE = 1
@@ -197,11 +205,13 @@ class ClientStatus(Enum):
 class SalesPerson(Employee):
     """Class for salesperson working for Best Events Company"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, fullName="", employeeId="", deptName="", positionTitle="", monthlySalary=0, currentAge=0,
                  birthDate="",
                  passportInfo="", emailAddress="", phoneNumber="", homeAddress="", employmentStartDate="",
                  clients=None):
         # Initialize salesperson attributes
+        # The attributes are private using the prefix of "__"
         super().__init__(fullName, employeeId, deptName, positionTitle, monthlySalary, currentAge, birthDate,
                          passportInfo,
                          emailAddress, phoneNumber, homeAddress, employmentStartDate)
@@ -231,7 +241,7 @@ class SalesPerson(Employee):
             print(f"Error removing client: {e}")
 
     def __str__(self):
-        # String representation of the salesperson object
+        # Through using the string function it will display string representation of the salesperson object
         employee_str = super().__str__()  # Get the string from the superclass
         client_list = ', '.join([client['name'] for client in self.__clients]) if self.__clients else "No clients"
         sales_person_str = f"Clients: {client_list}"
@@ -241,6 +251,7 @@ class SalesPerson(Employee):
 class MarketingManager(Employee):
     """Class for marketing manager working for Best Events Company"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, fullName="", employeeId="", deptName="", positionTitle="", monthlySalary=0, currentAge=0,
                  birthDate="",
                  passportInfo="", emailAddress="", phoneNumber="", homeAddress="", employmentStartDate="",
@@ -249,19 +260,20 @@ class MarketingManager(Employee):
         super().__init__(fullName, employeeId, deptName, positionTitle, monthlySalary, currentAge, birthDate,
                          passportInfo,
                          emailAddress, phoneNumber, homeAddress, employmentStartDate)
+        # The attributes are private using the prefix of "__"
         self.__marketingStrategy = marketingStrategy  # The marketing strategy employed by the marketing manager
 
     def updateMarketingStrategy(self, newStrategy):
-        # Function to update marketing strategy
+        # The function is generated to update marketing strategy
         try:
             self.__marketingStrategy = newStrategy
         except Exception as e:
             print(f"Error updating marketing strategy: {e}")
 
     def launchMarketingCampaign(self):
-        # Function to launch a marketing campaign
+        # Lunch marketing function is created to launch a marketing campaign
         try:
-            # Add logic to launch a marketing campaign
+            # Then we add the logic for launch a marketing campaign
             return f"Launching marketing campaign with strategy: {self.__marketingStrategy}"
         except Exception as e:
             print(f"Error launching marketing campaign: {e}")
@@ -283,25 +295,27 @@ class MarketingManager(Employee):
 class Marketer(Employee):
     """Class for marketer working for Best Events Company"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, fullName="", employeeId="", deptName="", positionTitle="", monthlySalary=0, currentAge=0,
                  birthDate="",
                  passportInfo="", emailAddress="", phoneNumber="", homeAddress="", employmentStartDate="",
                  campaigns=None):
         # Initialize marketer attributes
+        # The attributes are private using the prefix of "__"
         super().__init__(fullName, employeeId, deptName, positionTitle, monthlySalary, currentAge, birthDate,
                          passportInfo,
                          emailAddress, phoneNumber, homeAddress, employmentStartDate)
         self.__campaigns = campaigns if campaigns else []
 
     def createCampaign(self, campaign):
-        # Function to create a marketing campaign
+        # Creating a function to develop a marketing campaign
         try:
             self.__campaigns.append(campaign)
         except Exception as e:
             print(f"Error creating campaign: {e}")
 
     def updateCampaign(self, campaignID, updates):
-        # Function to update an existing marketing campaign
+        # Ceating a function in order to update an existing marketing campaign
         try:
             for campaign in self.__campaigns:
                 if campaign['id'] == campaignID:
@@ -310,6 +324,7 @@ class Marketer(Employee):
         except Exception as e:
             print(f"Error updating campaign: {e}")
 
+    # Creating setter and getter for campaigns attribute
     def getCampaigns(self):
         return self.__campaigns
 
@@ -317,7 +332,7 @@ class Marketer(Employee):
         self.__campaigns = campaigns
 
     def __str__(self):
-        # String representation of the marketer object
+        # Then we use string function for string representation of the marketer object
         employee_str = super().__str__()  # Get the string from the superclass
         campaign_list = ', '.join(
             [campaign['name'] for campaign in self.__campaigns]) if self.__campaigns else "No campaigns"
@@ -327,18 +342,20 @@ class Marketer(Employee):
 class Accountant(Employee):
     """Class for accountant working for Best Events Company"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, fullName="", employeeId="", deptName="", positionTitle="", monthlySalary=0, currentAge=0,
                  birthDate="",
                  passportInfo="", emailAddress="", phoneNumber="", homeAddress="", employmentStartDate="",
                  financialReports=None):
         # Initialize accountant attributes
+        # The attributes are private using the prefix of "__"
         super().__init__(fullName, employeeId, deptName, positionTitle, monthlySalary, currentAge, birthDate,
                          passportInfo,
                          emailAddress, phoneNumber, homeAddress, employmentStartDate)
         self.__financialReports = financialReports if financialReports else []
 
     def generate_financial_report(self, startDate, endDate):
-        # Function to generate a financial report for a specific period
+        # Creating a function to generate a financial report for a specific period
         try:
             # Simulate report generation
             report = f"Financial report from {startDate} to {endDate}"
@@ -354,6 +371,7 @@ class Accountant(Employee):
         except Exception as e:
             print(f"Error updating financial records: {e}")
 
+    # Setters and getters for financial reports for reading and editing
     def getFinancialReports(self):
         return self.__financialReports
 
@@ -369,25 +387,27 @@ class Accountant(Employee):
 class Designer(Employee):
     """Class for designer working for Best Events Company"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, fullName="", employeeId="", deptName="", positionTitle="", monthlySalary=0, currentAge=0,
                  birthDate="",
                  passportInfo="", emailAddress="", phoneNumber="", homeAddress="", employmentStartDate="",
                  designs=None):
         # Initialize designer attributes
+        # The attributes are private using the prefix of "__"
         super().__init__(fullName, employeeId, deptName, positionTitle, monthlySalary, currentAge, birthDate,
                          passportInfo,
                          emailAddress, phoneNumber, homeAddress, employmentStartDate)
         self.__designs = designs if designs else []
 
     def createDesign(self, design):
-        # Function to create a new design
+        # This function is applied to create a new design
         try:
             self.__designs.append(design)
         except Exception as e:
             print(f"Error creating design: {e}")
 
     def updateDesign(self, designID, updates):
-        # Function to update an existing design
+        # This function is used to update an existing design
         try:
             for design in self.__designs:
                 if design['id'] == designID:
@@ -396,6 +416,7 @@ class Designer(Employee):
         except Exception as e:
             print(f"Error updating design: {e}")
 
+    # Creating setters and getters to handle the designs attribute effectively
     def getDesigns(self):
         return self.__designs
 
@@ -403,7 +424,7 @@ class Designer(Employee):
         self.__designs = designs
 
     def __str__(self):
-        # String representation of the designer object
+        # Adding string function for string representation of the designer object
         employee_str = super().__str__()  # Get the string from the superclass
         design_count = len(self.__designs)
         return f"{employee_str}\nDesigns Created: {design_count} designs"
@@ -412,29 +433,32 @@ class Designer(Employee):
 class Handyman(Employee):
     """Class for Handyman working for Best Events Company"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, fullName="", employeeId="", deptName="", positionTitle="", monthlySalary=0, currentAge=0,
                  birthDate="",
                  passportInfo="", emailAddress="", phoneNumber="", homeAddress="", employmentStartDate="", tasks=None):
         # Initialize handyman attributes
+        # The attributes are private using the prefix of "__"
         super().__init__(fullName, employeeId, deptName, positionTitle, monthlySalary, currentAge, birthDate,
                          passportInfo,
                          emailAddress, phoneNumber, homeAddress, employmentStartDate)
         self.__tasks = tasks if tasks else []
 
     def assign_task(self, task):
-        # Function to assign a task to the handyman
+        # This function is developed to assign a task to the handyman
         try:
             self.__tasks.append(task)
         except Exception as e:
             print(f"Error assigning task: {e}")
 
     def completeTask(self, taskID):
-        # Function to mark a task as completed
+        # This function is developed to mark a task as completed
         try:
             self.__tasks = [task for task in self.__tasks if task['id'] != taskID]
         except Exception as e:
             print(f"Error completing task: {e}")
 
+    # Adding setters and getters for tasks attributes that are completed by the handman in the company
     def getTasks(self):
         return self.__tasks
 
@@ -442,12 +466,13 @@ class Handyman(Employee):
         self.__tasks = tasks
 
     def __str__(self):
-        # String representation of the handyman object
+        # Adding string representation of the handyman object in order to simplify and clarify the end result
         employee_str = super().__str__()  # Get the string from the superclass
         task_count = len(self.__tasks)
         return f"{employee_str}\nTasks Assigned: {task_count} tasks"
 
 
+# Adding enum classes for contact method and special requests as they have limited list of options
 from enum import Enum
 
 
@@ -467,9 +492,11 @@ class SpecialRequest(Enum):
 class Client:
     """Class for clients that are collaborating with Best Events Company"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, clientId="", clientName="", clientAddress="", contactDetails="", budget=0,
                  eventHistory="", loyaltyPoints=0, preferredContactMethod=ContactMethod.EMAIL, specialRequests="",
                  contractSigned=False):
+        # The attributes are protected using the prefix of "_"
         self._clientId = clientId
         self._clientName = clientName
         self._clientAddress = clientAddress
@@ -482,17 +509,18 @@ class Client:
         self._contractSigned = contractSigned
 
     def calculateTotalSpending(self):
-        # Function to calculate total spending on events organized
+        # calculate total spending function is used to calculate total spending on events organized
         return sum(event['cost'] for event in eval(self._eventHistory))
 
     def updateEventHistory(self, event):
-        # Function to update event history by adding a new event
+        # Update the event history is a function to update event history by adding a new event
         self._eventHistory.append(event)
 
     def sendReminder(self):
-        # Function to send a reminder to the client about upcoming events
+        # the send reminder function is used to send a reminder to the client about upcoming events
         return f"Reminder sent to {self._clientName} about upcoming events."
 
+    # Adding setters and getters for all attributes developed in the client class
     def getClientId(self):
         return self._clientId
 
@@ -553,12 +581,13 @@ class Client:
     def setContractSigned(self, contractSigned):
         self._contractSigned = contractSigned
 
+    # Adding the string function to clarify the result of the object
     def __str__(self):
         return (f"Client ID: {self._clientId}\n"
                 f"Client Name: {self._clientName}\n"
                 f"Client Address: {self._clientAddress}\n"
                 f"Contact Details: {self._contactDetails}\n"
-                f"Budget: ${self._budget}\n"
+                f"Budget: DHS{self._budget}\n"
                 f"Events: {len(eval(self._eventHistory))} events\n"
                 f"Loyalty Points: {self._loyaltyPoints}\n"
                 f"Preferred Contact Method: {self._preferredContactMethod.value}\n"
@@ -569,9 +598,11 @@ class Client:
 class Guest:
     """Class for guests that are invited to services Best Events Company provides"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, guestId="", guestName="", guestAddress="", contactDetails="",
                  rsvpStatus="", mealPreference="", accommodationDetails="", giftRegistry="",
                  specialNeeds=""):
+        # The attributes are protected using the prefix of "_"
         self._guestId = guestId
         self._guestName = guestName
         self._guestAddress = guestAddress
@@ -583,19 +614,20 @@ class Guest:
         self._specialNeeds = specialNeeds
 
     def confirmRsvp(self):
-        # Function to confirm RSVP status for the event
+        # The confirm rsvp is a function to confirm RSVP status for the event
         self._rsvpStatus = "Confirmed"
         return f"RSVP status confirmed for {self._guestName}."
 
     def updateMealPreference(self, preference):
-        # Function to update meal preference
+        # The update meal preference is a function to update meal preference
         self._mealPreference = preference
         return f"Meal preference updated to {preference} for {self._guestName}."
 
     def requestTransportation(self):
-        # Function to request transportation arrangements
+        # The request transportation is used as a function to request transportation arrangements
         return f"Transportation request initiated for {self._guestName}."
 
+    # Developing the setters and getters for guest class
     def getGuestId(self):
         return self._guestId
 
@@ -650,6 +682,7 @@ class Guest:
     def setSpecialNeeds(self, specialNeeds):
         self._specialNeeds = specialNeeds
 
+    # Adding a string to simplify the final result of guest object readibility
     def __str__(self):
         return (f"Guest ID: {self._guestId}\n"
                 f"Guest Name: {self._guestName}\n"
@@ -665,9 +698,11 @@ class Guest:
 class Event:
     """Class for events hosted by Best Events Company"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, eventId="", eventType="", eventTheme="", eventDate="", eventTime="", eventDuration="",
                  venueAddress="", clientId="",
                  guestList=None, invoice="", eventStatus="", attendeeCount=0, feedback="", expenses=0, profit=0):
+        # The attributes are private using the prefix of "__"
         self.__eventId = eventId
         self.__eventType = eventType
         self.__eventTheme = eventTheme
@@ -684,22 +719,118 @@ class Event:
         self.__expenses = expenses
         self.__profit = profit
 
+    # Getters and Setters for each attribute
+    def getEventId(self):
+        return self.__eventId
+
+    def setEventId(self, eventId):
+        self.__eventId = eventId
+
+    def getEventType(self):
+        return self.__eventType
+
+    def setEventType(self, eventType):
+        self.__eventType = eventType
+
+    def getEventTheme(self):
+        return self.__eventTheme
+
+    def setEventTheme(self, eventTheme):
+        self.__eventTheme = eventTheme
+
+    def getEventDate(self):
+        return self.__eventDate
+
+    def setEventDate(self, eventDate):
+        self.__eventDate = eventDate
+
+    def getEventTime(self):
+        return self.__eventTime
+
+    def setEventTime(self, eventTime):
+        self.__eventTime = eventTime
+
+    def getEventDuration(self):
+        return self.__eventDuration
+
+    def setEventDuration(self, eventDuration):
+        self.__eventDuration = eventDuration
+
+    def getVenueAddress(self):
+        return self.__venueAddress
+
+    def setVenueAddress(self, venueAddress):
+        self.__venueAddress = venueAddress
+
+    def getClientId(self):
+        return self.__clientId
+
+    def setClientId(self, clientId):
+        self.__clientId = clientId
+
+    def getGuestList(self):
+        return self.__guestList
+
+    def setGuestList(self, guestList):
+        self.__guestList = guestList
+
+    def getInvoice(self):
+        return self.__invoice
+
+    def setInvoice(self, invoice):
+        self.__invoice = invoice
+
+    def getEventStatus(self):
+        return self.__eventStatus
+
+    def setEventStatus(self, eventStatus):
+        self.__eventStatus = eventStatus
+
+    def getAttendeeCount(self):
+        return self.__attendeeCount
+
+    def setAttendeeCount(self, attendeeCount):
+        self.__attendeeCount = attendeeCount
+
+    def getFeedback(self):
+        return self.__feedback
+
+    def setFeedback(self, feedback):
+        self.__feedback = feedback
+
+    def getExpenses(self):
+        return self.__expenses
+
+    def setExpenses(self, expenses):
+        self.__expenses = expenses
+
+    def getProfit(self):
+        return self.__profit
+
+    def setProfit(self, profit):
+        self.__profit = profit
+
+    # This function is created in order to update the status of the event
     def updateStatus(self, newStatus):
         self.__eventStatus = newStatus
         return f"Event status updated to {newStatus}."
 
+    # Creating a function to keep record of the feedback
     def recordFeedback(self, feedback):
         self.__feedback += feedback
         return "Feedback recorded successfully."
 
+    # This function in order to calculate the total profit of the event
     def calculateProfit(self):
         self.__profit = self.__attendeeCount * 50 - self.__expenses  # Assuming a fixed price per attendee
         return self.__profit
 
+    # Adding a function in order to add guests for the event
     def addGuest(self, guest):
         self.__guestList.append(guest)
         self.__attendeeCount = len(self.__guestList)
 
+    # Adding a string function for easier readibility for the guests
     def __str__(self):
         return (f"Event ID: {self.__eventId}\n"
                 f"Event Type: {self.__eventType}\n"
@@ -714,10 +845,11 @@ class Event:
                 f"Event Status: {self.__eventStatus}\n"
                 f"Attendee Count: {self.__attendeeCount}\n"
                 f"Feedback: {self.__feedback}\n"
-                f"Expenses: ${self.__expenses}\n"
-                f"Profit: ${self.__profit}")
+                f"Expenses: AED{self.__expenses}\n"
+                f"Profit: AED{self.__profit}")
 
 
+# adding enum class for specialization including catering, cleaning, furniture supply, and decorations supply
 from enum import Enum
 
 
@@ -731,9 +863,11 @@ class Specialization(Enum):
 class Supplier:
     """Class for suppliers that provide services/products for Best Events Company"""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
     def __init__(self, supplierId="", supplierName="", supplierAddress="", supplierContactDetails="",
                  serviceArea="", availability="", contractSigned=False, preferredPaymentMethod="",
                  specialization=Specialization.CATERING):  # Default specialization set to Catering
+        # The attributes are private using the prefix of "__"
         self.__supplierId = supplierId
         self.__supplierName = supplierName
         self.__supplierAddress = supplierAddress
@@ -744,19 +878,23 @@ class Supplier:
         self.__preferredPaymentMethod = preferredPaymentMethod
         self.__specialization = specialization
 
+    # Adding the update avaibility function to help the suppliers to manage avaiblity
     def updateAvailability(self, schedule):
         self.__availability = schedule
         return f"Availability updated to: {schedule}"
 
+    # Adding a function to keep track of the contract signed
     def signContract(self):
         if not self.__contractSigned:
             self.__contractSigned = True
             return "Contract signed successfully."
         return "Contract already signed."
 
+    # adding a function to process the payment
     def processPayment(self, amount):
         return f"Processed payment of ${amount}."
 
+    # adding a string function for easier readibility of the attributes of the supplier class
     def __str__(self):
         return (f"Supplier ID: {self.__supplierId}\n"
                 f"Supplier Name: {self.__supplierName}\n"
@@ -768,6 +906,7 @@ class Supplier:
                 f"Preferred Payment Method: {self.__preferredPaymentMethod}\n"
                 f"Specialization: {self.__specialization.value}")
 
+    # Creating setters and getters for the attributes in the supplier class
     def getSupplierId(self):
         return self.__supplierId
 
@@ -830,6 +969,7 @@ class Venue:
                  maximumGuestCapacity=0,
                  venueAmenities=None, currentBookingStatus="", bookingDateDetails="", cancellationTerms="",
                  additionalServiceFees=None):
+        # The attributes are private using the prefix of "__"
         self.__venueIdentifier = venueIdentifier
         self.__venueName = venueName
         self.__venueAddress = venueAddress
@@ -842,19 +982,22 @@ class Venue:
         self.__cancellationTerms = cancellationTerms
         self.__additionalServiceFees = additionalServiceFees if additionalServiceFees else []
 
+    # Creating a function for updating the venue amentities
     def update_venue_amenities(self, newAmenities):
         try:
             self.__venueAmenities = newAmenities
         except Exception as e:
             print(f"Error updating amenities: {e}")
 
+    # Adding a function to check the availability of the venue
     def check_venue_availability(self, date):
         try:
-            # Implement logic to check availability based on existing bookings
+            # Adding logic to check availability based on existing bookings
             pass
         except Exception as e:
             print(f"Error checking availability: {e}")
 
+    # Adding function in order to calculate the total cost of the venue
     def calculate_venue_cost(self, duration):
         try:
             total_cost = 0
@@ -944,6 +1087,8 @@ class EventType(Enum):
 class BestEventCompany:
     """Class to manage the operations of Best Event Company, including events, venues, clients, suppliers, and employees."""
 
+    # Adding the instructor in order to initialize attributes and their data types for better efficiency
+    # The attributes are protected using the prefix of "_"
     def __init__(self, managedEvents=None, managedVenues=None, registeredClients=None, associatedSuppliers=None,
                  companyEmployees=None, eventtype=EventType.WEDDING):
         self._managedEvents = managedEvents if managedEvents else []
@@ -953,39 +1098,100 @@ class BestEventCompany:
         self._companyEmployees = companyEmployees if companyEmployees else []
         self._eventtype = eventtype
 
+    # Getters and Setters
+    def get_managed_events(self):
+        # Get the list of managed events
+        return self._managedEvents
+
+    def set_managed_events(self, events):
+        # Set the list of managed events
+        self._managedEvents = events
+
+    def get_managed_venues(self):
+        # Get the list of managed venues
+        return self._managedVenues
+
+    def set_managed_venues(self, venues):
+        # Set the list of managed venues
+        self._managedVenues = venues
+
+    def get_registered_clients(self):
+        # Get the list of registered clients
+        return self._registeredClients
+
+    def set_registered_clients(self, clients):
+        # Set the list of registered clients.
+        self._registeredClients = clients
+
+    def get_associated_suppliers(self):
+        # Get the list of associated suppliers
+        return self._associatedSuppliers
+
+    def set_associated_suppliers(self, suppliers):
+        # Set the list of associated suppliers
+        self._associatedSuppliers = suppliers
+
+    def get_company_employees(self):
+        # Get the list of company employees
+        return self._companyEmployees
+
+    def set_company_employees(self, employees):
+        # Set the list of company employees
+        self._companyEmployees = employees
+
+    def get_event_type(self):
+        # Get the default event type
+        return self._eventtype
+
+    def set_event_type(self, event_type):
+        # Set the default event type
+        self._eventtype = event_type
+
+    # Management Functions
     def add_event(self, event):
+        # Add a new event to the managed events list
         self._managedEvents.append(event)
 
     def remove_event(self, eventID):
-        self._managedEvents = [event for event in self._managedEvents if event.get_eventID() != eventID]
+        # Remove an event by ID from the managed events list
+        self._managedEvents = [event for event in self._managedEvents if event.get_event_id() != eventID]
 
     def add_venue(self, venue):
+        # Add a new venue to the managed venues list
         self._managedVenues.append(venue)
 
     def remove_venue(self, venueID):
-        self._managedVenues = [venue for venue in self._managedVenues if venue.get_venue_identifier() != venueID]
+        # Remove a venue by ID from the managed venues list
+        self._managedVenues = [venue for venue in self._managedVenues if venue.get_venue_id() != venueID]
 
     def add_client(self, client):
+        # Add a new client to the registered clients list
         self._registeredClients.append(client)
 
     def remove_client(self, clientID):
+        # Remove a client by ID from the registered clients list
         self._registeredClients = [client for client in self._registeredClients if client.get_client_id() != clientID]
 
     def add_supplier(self, supplier):
+        # Add a new supplier to the associated suppliers list
         self._associatedSuppliers.append(supplier)
 
     def remove_supplier(self, supplierID):
+        # Remove a supplier by ID from the associated suppliers list
         self._associatedSuppliers = [supplier for supplier in self._associatedSuppliers if
                                      supplier.get_supplier_id() != supplierID]
 
     def add_employee(self, employee):
+        # Add a new employee to the company employees list
         self._companyEmployees.append(employee)
 
     def remove_employee(self, employeeID):
+        # Remove an employee by ID from the company employees list
         self._companyEmployees = [employee for employee in self._companyEmployees if
                                   employee.get_employee_id() != employeeID]
 
     def __str__(self):
+        # Provide a formatted string for the company's current status
         return (f"Best Event Company currently manages {len(self._managedEvents)} events, "
                 f"{len(self._managedVenues)} venues, {len(self._registeredClients)} clients, "
                 f"{len(self._associatedSuppliers)} suppliers, and employs {len(self._companyEmployees)} staff members.")
